@@ -5,10 +5,10 @@
     "inlineSources": true,
     "module": "ESNext",
     "target": "ES6",
-    "allowJs": true,
     "noImplicitAny": true,
     "moduleResolution": "node",
     "importHelpers": true,
+    "outDir": "./dist",
     "lib": [
       "DOM",
       "ES5",
@@ -17,6 +17,6 @@
     ]
   },
   "include": [
-    "**/*.ts"
+    "src"
   ]
 }

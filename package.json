@@ -7,6 +7,20 @@
 		"dev": "node esbuild.config.mjs",
 		"build": "node esbuild.config.mjs production"
 	},
+	"r": {
+		"sync": {
+			"script": "run() { if [ \"$1\" = \"\" ]; then echo 'usage: yarn r sync <dest>'; echo $@; return; fi; echo Syncing files with $1; rsync -r .hotreload main.js manifest.json styles.css $1; }; run",
+			"watch": [
+				"main.js",
+				"styles.css",
+				"manifest.json"
+			]
+		},
+		"watch": [
+			"r:sync",
+			"yarn dev"
+		]
+	},
 	"keywords": [],
 	"author": "",
 	"license": "MIT",
@@ -19,5 +33,8 @@
 		"obsidian": "^0.12.17",
 		"tslib": "2.3.1",
 		"typescript": "4.4.4"
+	},
+	"dependencies": {
+		"juggl-api": "HEmile/juggl-api"
 	}
 }
